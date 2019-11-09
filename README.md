@@ -108,6 +108,7 @@ declare module package-with-no-typings-file
 ```
 
 /tsconfig.json
+--
 ```javascript
 {
 	"compilerOptions": {
@@ -155,7 +156,7 @@ declare module package-with-no-typings-file
 ```
 
 /tslint.json
-
+--
 ```javascript
 {
 	"extends": [
@@ -309,7 +310,7 @@ declare module package-with-no-typings-file
 ```
 
 /webpack.config.js
-
+---
 ```javascript
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
