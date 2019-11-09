@@ -38,6 +38,186 @@ node_modules
 *.yarn
 *.iml
 ```
+
+Setting up project:
+--
+Follow below instruction to setup project from scratch.
+     
+Step-1
+---
+*create below folder structure, where you want to keep project*
+```bash
+mkdir react-typescript-webpack 
+cd react-typescript-webpack 
+mkdir -p src/components src/styles
+```     
+Step-2
+---
+*install node and npm*
+```bash
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+sudo apt install nodejs
+node --version
+npm --version
+```
+step-3
+---
+*initiate project with npm. This will create package.json*
+
+```bash
+npm init -y
+```
+step-4
+---
+*install webpack and webpack-cli as dev dependency. This is required to buddle the resource
+that you can deploy as single page application on S3 bucket.*
+
+```bash
+npm install webpack webpack-cli --save-dev
+```
+
+step-5
+---
+*install react and react-dom as a dependency to convert project to react application*
+     
+```bash
+npm install react react-dom --save
+```     
+
+Step-6. *install typescript as dev-dependency*
+---
+ 
+*It will enable type checking properties for javascript.*
+     
+```bash
+npm install typescript --save-dev
+```     
+
+Step-7. *Install bable as dev dependency*:
+---     
+*It allows us to write next-gen JavaScript and will compile browser 
+compatibility Java script code.*
+
+```bash
+npm install @babel/core babel-loader @babel/preset-react @babel/preset-typescript @babel/preset-env @babel/plugin-proposal-class-properties
+ @babel/plugin-proposal-object-rest-spread --save-dev
+```
+
+Step-8. css-loader and style-loader
+---
+*Two style loaders which will be used to compile your CSS in webpack.*
+
+```bash
+npm install css-loader style-loader --save-dev
+```
+
+Step-9. html-webpack-plugin
+---
+
+```bash
+npm install html-webpack-plugin --save-dev
+```
+
+Step-10. webpack-dev-server
+---
+
+```bash
+npm install webpack-dev-server --save-dev
+```
+
+Step-11. tslint
+---
+*tslint is used in your IDE and will give you underline your code in red if it is does not adhere to 
+the rules you’ve set in tslint.json.*
+
+```bash
+npm install tslint tslint-immutable --save-dev
+```
+Step-12. react and react-dom types
+---
+*react and react-dom types are the typing files we install for TypeScript.*
+
+```bash
+npm install @types/react @types/react-dom --save
+```
+
+Step-13. Create file override.d.ts /react-typescript-boilerplate/typings
+---
+* TypeScript compiler will complain when you install a package without its typing files. 
+*
+
+```
+declare module package-with-no-typings-file
+```
+
+Step-14. Create /index.html:
+---
+
+```javascript
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hello Ranjit from Berlin, Germany!! </title>
+</head>
+
+<body>
+    <div id="root">
+
+    </div>
+</body>
+
+</html>
+```
+
+Step-15. In ./src/styles, create index.css
+--
+
+```css
+h1 {
+    color: #292727;
+    text-align: center;
+}
+```
+
+Step-16. In ./src/components, create App.tsx:
+--
+
+```typescript
+import React from 'react';
+
+import '../styles/index.css';
+
+class App extends React.PureComponent {
+	render() {
+		return (
+			<div>
+				<h1>Hello World!</h1>
+			</div>
+		);
+	}
+}
+
+export default App;
+```
+
+Step-17. create /index.tsx:
+--
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './components/App';
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+Verify file contains as below:
+--
+
 /.babelrc
 --
 ```code
@@ -357,3 +537,4 @@ module.exports = {
 };
 
 ```
+
